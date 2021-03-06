@@ -24,23 +24,66 @@ class MyHomePage extends StatelessWidget {
         // the App.build method, and use it to set our appbar title.
         title: Text('Flexible & Expanded'),
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Container(
-            height: 100,
-            child: Text('Item 1 - pretty big!'),
-            color: Colors.red,
+          Row(
+            children: [
+              Container(
+                height: 100,
+                child: Text('Item 1 - pretty big!'),
+                color: Colors.red,
+              ),
+              Flexible(
+                fit: FlexFit.tight,
+                child: Container(
+                  height: 100,
+                  child: Text('Item 2'),
+                  color: Colors.blue,
+                ),
+              ),
+              Flexible(
+                fit: FlexFit.tight,
+                flex: 3,
+                child: Container(
+                  height: 100,
+                  child: Text('Item 3'),
+                  color: Colors.orange,
+                ),
+              ),
+            ],
           ),
-          Container(
-            height: 100,
-            child: Text('Item 2'),
-            color: Colors.blue,
+          SizedBox(
+            height: 5,
           ),
-          Container(
-            height: 100,
-            child: Text('Item 3'),
-            color: Colors.orange,
+          Row(
+            children: [
+              Expanded(
+                // fit = tight,
+                flex: 5,
+                child: Container(
+                  height: 100,
+                  child: Text('Item 1 - pretty big!'),
+                  color: Colors.red,
+                ),
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  height: 100,
+                  child: Text('Item 2'),
+                  color: Colors.blue,
+                ),
+              ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  height: 100,
+                  child: Text('Item 3'),
+                  color: Colors.orange,
+                ),
+              ),
+            ],
           ),
         ],
       ),
